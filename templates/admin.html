@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block navbar %}
+      <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+{% endblock %}
+{% block content %}
+
+    <h2>Admin Dashboard</h2>
+    <div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Index Number</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.index_number }}</td>
+                <td>{{ student.name }}</td>
+                <td>
+                    <div class="payment-input">
+                        <select id="month-{{ student.student_id }}">
+                            <option value="" selected>-- Month --</option>
+                            {% for year in range(2023, 2025) %}
+                                {% for month in range(1, 13) %}
+                                    <option value="{{ year }}-{% if month < 10 %}0{% endif %}{{ month }}">{{ year }}-{% if month < 10 %}0{% endif %}{{ month }}</option>
+                                {% endfor %}
+                            {% endfor %}
+                        </select>
+                        <input type="number" id="amount-{{ student.student_id }}" placeholder="Amount">
+                        <button class="btn btn-add" onclick="addPayment({{ student.student_id }})">Add</button>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   </div>
+{% endblock %}

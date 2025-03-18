@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Student Dashboard{% endblock %}
+{% block navbar %}
+     <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+{% endblock %}
+{% block content %}
+    <div class="dashboard-container">
+        <h2>Student Dashboard</h2>
+        <p class="student-info">
+            <strong>Name:</strong> {{ student.name }}<br>
+            <strong>Index Number:</strong> {{ student.index_number }}
+        </p>
+
+        <div class="summary-section">
+            <h3>Payment Summary</h3>
+            <p><strong>Total Due:</strong> LKR {{ total_due }}</p>
+            <p><strong>Total Paid:</strong> LKR {{ total_paid }}</p>
+            <p class="balance"><strong>Balance:</strong> LKR {{ total_due - total_paid }}</p>
+        </div>
+
+        <div class="history-section">
+            <h3>Payment History</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Amount Paid</th>
+                        <th>Payment Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for payment in payments %}
+                    <tr>
+                        <td>{{ payment.month }}</td>
+                        <td>LKR {{ payment.amount_paid }}</td>
+                        <td>{{ payment.payment_date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
