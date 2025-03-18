@@ -25,6 +25,6 @@ CREATE TABLE Admins(
 );
 
 -- Add a default admin user (IMPORTANT: Change the password!)
-INSERT INTO Admins (username, password) VALUES ('admin', 'admin123');
-INSERT INTO Students (index_number, name, password) VALUES ('1001', 'nimal', 'nimal123');
-INSERT INTO Students (index_number, name, password) VALUES ('1002', 'sunil', 'sunil123');
+INSERT INTO Admins (username, password) VALUES ('codex', 'f6b3mns33dw');
+INSERT INTO Students (index_number, name, password) VALUES ('1001', 'Dinithi', 'dinithi123');
+INSERT INTO Students (index_number, name, password) VALUES ('1002', 'Waruni', 'warunimodai');
