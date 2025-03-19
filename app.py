@@ -41,8 +41,8 @@ def calculate_total_due(student_id):
     current_year = datetime.datetime.now().year
     current_month = datetime.datetime.now().month
     # You might want to store the start date of the batch to be more accurate
-    start_year = 2024  # Example start year
-    start_month = 10   # Example start month
+    start_year = 2025  # Example start year
+    start_month = 1   # Example start month
 
     total_months = (current_year - start_year) * 12 + (current_month - start_month) + 1
     total_due = total_months * monthly_fee
